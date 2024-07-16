@@ -1,5 +1,5 @@
 import '../css/styles.css'
-
+import shortid from 'shortid'
 export default function Form({todo, setTodo, todoList, setTodoList}) {
     const handleChange = (event) => {
         setTodo(event.target.value)
@@ -8,7 +8,7 @@ export default function Form({todo, setTodo, todoList, setTodoList}) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setTodoList([...todoList, todo])
+        setTodoList([...todoList, {name:todo, id:shortid.generate()}])
         console.log(todoList)
         setTodo('')
     }
